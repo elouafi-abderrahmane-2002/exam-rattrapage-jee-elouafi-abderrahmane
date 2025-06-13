@@ -1,0 +1,11 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@creditImmobilier.add.headline">Add Credit Immobilier</h1>
+    <div>
+        <a routerLink="/creditImmobiliers" class="btn btn-secondary" i18n="@@creditImmobilier.add.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="addForm" field="type" rowType="radio" [options]="{'APPARTEMENT': 'APPARTEMENT', 'MAISON': 'MAISON', 'LOCAL_COMMERCIAL': 'LOCAL_COMMERCIAL'}" i18n-label="@@creditImmobilier.type.label" label="Type" />
+    <app-input-row [group]="addForm" field="credit" rowType="select" [options]="creditValues" i18n-label="@@creditImmobilier.credit.label" label="Credit" />
+    <input type="submit" i18n-value="@@creditImmobilier.add.headline" value="Add Credit Immobilier" class="btn btn-primary mt-4" />
+</form>

@@ -1,0 +1,47 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@credit.list.headline">Credits</h1>
+    <div>
+        <a routerLink="/credits/add" class="btn btn-primary ms-2" i18n="@@credit.list.createNew">Create new Credit</a>
+    </div>
+</div>
+@if (!credits || credits.length === 0) {
+<div i18n="@@credit.list.empty">No Credits could be found.</div>
+} @else {
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+                <th scope="col" i18n="@@credit.id.label">Id</th>
+                <th scope="col" i18n="@@credit.dateDemande.label">Date Demande</th>
+                <th scope="col" i18n="@@credit.statut.label">Statut</th>
+                <th scope="col" i18n="@@credit.dateAcceptation.label">Date Acceptation</th>
+                <th scope="col" i18n="@@credit.montant.label">Montant</th>
+                <th scope="col" i18n="@@credit.dureeRemboursement.label">Duree Remboursement</th>
+                <th scope="col" i18n="@@credit.tauxInteret.label">Taux Interet</th>
+                <th scope="col" i18n="@@credit.typeCredit.label">Type Credit</th>
+                <th><!-- --></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (credit of credits; track credit.id) {
+            <tr>
+                <td>{{ credit.id }}</td>
+                <td>{{ credit.dateDemande }}</td>
+                <td>{{ credit.statut }}</td>
+                <td>{{ credit.dateAcceptation }}</td>
+                <td>{{ credit.montant }}</td>
+                <td>{{ credit.dureeRemboursement }}</td>
+                <td>{{ credit.tauxInteret }}</td>
+                <td>{{ credit.typeCredit }}</td>
+                <td>
+                    <div class="float-end text-nowrap">
+                        <a [routerLink]="['/credits/edit', credit.id]" class="btn btn-sm btn-secondary" i18n="@@credit.list.edit">Edit</a>
+                        <button type="button" (click)="confirmDelete(credit.id!)" class="btn btn-sm btn-secondary" i18n="@@credit.list.delete">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

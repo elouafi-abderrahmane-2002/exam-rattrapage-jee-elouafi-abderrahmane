@@ -1,0 +1,109 @@
+<!-- home.component.html -->
+
+<h1 class="mb-5 text-center fw-bold display-5" i18n="@@home.index.headline">Bienvenue dans l’espace de gestion bancaire!
+</h1>
+
+<div class="container">
+
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        <!-- Clients -->
+        <div class="col">
+            <a routerLink="/clients" class="text-decoration-none">
+                <div class="card entity-card text-center">
+                    <div class="card-body">
+                        <i class="bi bi-person-lines-fill icon-style"></i>
+                        <h5 class="card-title mt-3" i18n="@@client.list.headline">Clients</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Credits -->
+        <div class="col">
+            <a routerLink="/credits" class="text-decoration-none">
+                <div class="card entity-card text-center">
+                    <div class="card-body">
+                        <i class="bi bi-credit-card-2-back-fill icon-style"></i>
+                        <h5 class="card-title mt-3" i18n="@@credit.list.headline">Credits</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Crédit Personnels -->
+        <div class="col">
+            <a routerLink="/creditPersonnels" class="text-decoration-none">
+                <div class="card entity-card text-center">
+                    <div class="card-body">
+                        <i class="bi bi-briefcase-fill icon-style"></i>
+                        <h5 class="card-title mt-3" i18n="@@creditPersonnel.list.headline">Crédit Personnels</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Crédit Professionnels -->
+        <div class="col">
+            <a routerLink="/creditProfessionnels" class="text-decoration-none">
+                <div class="card entity-card text-center">
+                    <div class="card-body">
+                        <i class="bi bi-building icon-style"></i>
+                        <h5 class="card-title mt-3" i18n="@@creditProfessionnel.list.headline">Crédit Professionnels</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Crédit Immobiliers -->
+        <div class="col">
+            <a routerLink="/creditImmobiliers" class="text-decoration-none">
+                <div class="card entity-card text-center">
+                    <div class="card-body">
+                        <i class="bi bi-house-fill icon-style"></i>
+                        <h5 class="card-title mt-3" i18n="@@creditImmobilier.list.headline">Crédit Immobiliers</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Remboursements -->
+        <div class="col">
+            <a routerLink="/remboursements" class="text-decoration-none">
+                <div class="card entity-card text-center">
+                    <div class="card-body">
+                        <i class="bi bi-cash-stack icon-style"></i>
+                        <h5 class="card-title mt-3" i18n="@@remboursement.list.headline">Remboursements</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .entity-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+      border-radius: 1rem;
+      background-color: #f8f9fa;
+    }
+
+    .entity-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+      background-color: #ffffff;
+    }
+
+    .icon-style {
+      font-size: 2.5rem;
+      color: #0d6efd;
+    }
+
+    .card-title {
+      font-weight: 600;
+      color: #333;
+    }
+</style>

@@ -1,0 +1,12 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@creditImmobilier.edit.headline">Edit Credit Immobilier</h1>
+    <div>
+        <a routerLink="/creditImmobiliers" class="btn btn-secondary" i18n="@@creditImmobilier.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="id" rowType="number" i18n-label="@@creditImmobilier.id.label" label="Id" />
+    <app-input-row [group]="editForm" field="type" rowType="radio" [options]="{'APPARTEMENT': 'APPARTEMENT', 'MAISON': 'MAISON', 'LOCAL_COMMERCIAL': 'LOCAL_COMMERCIAL'}" i18n-label="@@creditImmobilier.type.label" label="Type" />
+    <app-input-row [group]="editForm" field="credit" rowType="select" [options]="creditValues" i18n-label="@@creditImmobilier.credit.label" label="Credit" />
+    <input type="submit" i18n-value="@@creditImmobilier.edit.headline" value="Edit Credit Immobilier" class="btn btn-primary mt-4" />
+</form>

@@ -1,0 +1,39 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@creditProfessionnel.list.headline">Credit Professionnels</h1>
+    <div>
+        <a routerLink="/creditProfessionnels/add" class="btn btn-primary ms-2" i18n="@@creditProfessionnel.list.createNew">Create new Credit Professionnel</a>
+    </div>
+</div>
+@if (!creditProfessionnels || creditProfessionnels.length === 0) {
+<div i18n="@@creditProfessionnel.list.empty">No Credit Professionnels could be found.</div>
+} @else {
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+                <th scope="col" i18n="@@creditProfessionnel.id.label">Id</th>
+                <th scope="col" i18n="@@creditProfessionnel.raisonSociale.label">Raison Sociale</th>
+                <th scope="col" i18n="@@creditProfessionnel.motif.label">Motif</th>
+                <th scope="col" i18n="@@creditProfessionnel.credit.label">Credit</th>
+                <th><!-- --></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (creditProfessionnel of creditProfessionnels; track creditProfessionnel.id) {
+            <tr>
+                <td>{{ creditProfessionnel.id }}</td>
+                <td>{{ creditProfessionnel.raisonSociale }}</td>
+                <td>{{ creditProfessionnel.motif }}</td>
+                <td>{{ creditProfessionnel.credit }}</td>
+                <td>
+                    <div class="float-end text-nowrap">
+                        <a [routerLink]="['/creditProfessionnels/edit', creditProfessionnel.id]" class="btn btn-sm btn-secondary" i18n="@@creditProfessionnel.list.edit">Edit</a>
+                        <button type="button" (click)="confirmDelete(creditProfessionnel.id!)" class="btn btn-sm btn-secondary" i18n="@@creditProfessionnel.list.delete">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

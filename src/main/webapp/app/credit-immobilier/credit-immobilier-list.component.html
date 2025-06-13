@@ -1,0 +1,37 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@creditImmobilier.list.headline">Credit Immobiliers</h1>
+    <div>
+        <a routerLink="/creditImmobiliers/add" class="btn btn-primary ms-2" i18n="@@creditImmobilier.list.createNew">Create new Credit Immobilier</a>
+    </div>
+</div>
+@if (!creditImmobiliers || creditImmobiliers.length === 0) {
+<div i18n="@@creditImmobilier.list.empty">No Credit Immobiliers could be found.</div>
+} @else {
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+                <th scope="col" i18n="@@creditImmobilier.id.label">Id</th>
+                <th scope="col" i18n="@@creditImmobilier.type.label">Type</th>
+                <th scope="col" i18n="@@creditImmobilier.credit.label">Credit</th>
+                <th><!-- --></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (creditImmobilier of creditImmobiliers; track creditImmobilier.id) {
+            <tr>
+                <td>{{ creditImmobilier.id }}</td>
+                <td>{{ creditImmobilier.type }}</td>
+                <td>{{ creditImmobilier.credit }}</td>
+                <td>
+                    <div class="float-end text-nowrap">
+                        <a [routerLink]="['/creditImmobiliers/edit', creditImmobilier.id]" class="btn btn-sm btn-secondary" i18n="@@creditImmobilier.list.edit">Edit</a>
+                        <button type="button" (click)="confirmDelete(creditImmobilier.id!)" class="btn btn-sm btn-secondary" i18n="@@creditImmobilier.list.delete">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

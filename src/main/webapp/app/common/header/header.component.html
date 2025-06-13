@@ -1,0 +1,43 @@
+<header class="bg-light shadow-sm">
+    <div class="container">
+        <nav class="navbar navbar-expand-md navbar-light">
+            <!-- Brand Logo & Title -->
+            <a routerLink="/" class="navbar-brand d-flex align-items-center">
+
+                <span class="ps-2 fw-bold" i18n="@@app.title">GestionCreditBancaire</span>
+            </a>
+
+            <!-- Toggler for mobile -->
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarContent"
+                aria-controls="navbarContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Collapsible Menu -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a routerLink="/" class="nav-link" i18n="@@navigation.home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/clients" class="nav-link" i18n="@@client.list.headline">Clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/credits" class="nav-link" i18n="@@credit.list.headline">Crédits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/remboursements" class="nav-link" i18n="@@remboursement.list.headline">Remboursements</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>

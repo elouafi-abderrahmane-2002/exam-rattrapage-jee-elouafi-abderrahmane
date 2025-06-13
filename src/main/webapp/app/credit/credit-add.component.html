@@ -1,0 +1,17 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@credit.add.headline">Add Credit</h1>
+    <div>
+        <a routerLink="/credits" class="btn btn-secondary" i18n="@@credit.add.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="addForm" field="dateDemande" rowType="datepicker" i18n-label="@@credit.dateDemande.label" label="Date Demande" />
+    <app-input-row [group]="addForm" field="statut" rowType="radio" [options]="{'EN_COURS': 'EN_COURS', 'ACCEPTE': 'ACCEPTE', 'REJETE': 'REJETE'}" i18n-label="@@credit.statut.label" label="Statut" />
+    <app-input-row [group]="addForm" field="dateAcceptation" rowType="datepicker" i18n-label="@@credit.dateAcceptation.label" label="Date Acceptation" />
+    <app-input-row [group]="addForm" field="montant" i18n-label="@@credit.montant.label" label="Montant" />
+    <app-input-row [group]="addForm" field="dureeRemboursement" rowType="number" i18n-label="@@credit.dureeRemboursement.label" label="Duree Remboursement" />
+    <app-input-row [group]="addForm" field="tauxInteret" i18n-label="@@credit.tauxInteret.label" label="Taux Interet" />
+    <app-input-row [group]="addForm" field="typeCredit" rowType="radio" [options]="{'PERSONNEL': 'PERSONNEL', 'IMMOBILIER': 'IMMOBILIER', 'PROFESSIONEL': 'PROFESSIONEL'}" i18n-label="@@credit.typeCredit.label" label="Type Credit" />
+    <app-input-row [group]="addForm" field="client" rowType="select" [options]="clientValues" i18n-label="@@credit.client.label" label="Client" />
+    <input type="submit" i18n-value="@@credit.add.headline" value="Add Credit" class="btn btn-primary mt-4" />
+</form>

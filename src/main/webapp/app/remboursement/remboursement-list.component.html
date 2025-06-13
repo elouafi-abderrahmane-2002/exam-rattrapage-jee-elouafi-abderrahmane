@@ -1,0 +1,41 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@remboursement.list.headline">Remboursements</h1>
+    <div>
+        <a routerLink="/remboursements/add" class="btn btn-primary ms-2" i18n="@@remboursement.list.createNew">Create new Remboursement</a>
+    </div>
+</div>
+@if (!remboursements || remboursements.length === 0) {
+<div i18n="@@remboursement.list.empty">No Remboursements could be found.</div>
+} @else {
+<div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+        <thead>
+            <tr>
+                <th scope="col" i18n="@@remboursement.id.label">Id</th>
+                <th scope="col" i18n="@@remboursement.date.label">Date</th>
+                <th scope="col" i18n="@@remboursement.montant.label">Montant</th>
+                <th scope="col" i18n="@@remboursement.type.label">Type</th>
+                <th scope="col" i18n="@@remboursement.credit.label">Credit</th>
+                <th><!-- --></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (remboursement of remboursements; track remboursement.id) {
+            <tr>
+                <td>{{ remboursement.id }}</td>
+                <td>{{ remboursement.date }}</td>
+                <td>{{ remboursement.montant }}</td>
+                <td>{{ remboursement.type }}</td>
+                <td>{{ remboursement.credit }}</td>
+                <td>
+                    <div class="float-end text-nowrap">
+                        <a [routerLink]="['/remboursements/edit', remboursement.id]" class="btn btn-sm btn-secondary" i18n="@@remboursement.list.edit">Edit</a>
+                        <button type="button" (click)="confirmDelete(remboursement.id!)" class="btn btn-sm btn-secondary" i18n="@@remboursement.list.delete">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

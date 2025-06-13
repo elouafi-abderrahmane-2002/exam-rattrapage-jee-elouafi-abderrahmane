@@ -1,0 +1,13 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@remboursement.add.headline">Add Remboursement</h1>
+    <div>
+        <a routerLink="/remboursements" class="btn btn-secondary" i18n="@@remboursement.add.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="addForm" field="date" rowType="datepicker" i18n-label="@@remboursement.date.label" label="Date" />
+    <app-input-row [group]="addForm" field="montant" i18n-label="@@remboursement.montant.label" label="Montant" />
+    <app-input-row [group]="addForm" field="type" rowType="radio" [options]="{'MENSUALITE': 'MENSUALITE', 'REMBOURSEMENT_ANTICIPE': 'REMBOURSEMENT_ANTICIPE'}" i18n-label="@@remboursement.type.label" label="Type" />
+    <app-input-row [group]="addForm" field="credit" rowType="select" [options]="creditValues" i18n-label="@@remboursement.credit.label" label="Credit" />
+    <input type="submit" i18n-value="@@remboursement.add.headline" value="Add Remboursement" class="btn btn-primary mt-4" />
+</form>

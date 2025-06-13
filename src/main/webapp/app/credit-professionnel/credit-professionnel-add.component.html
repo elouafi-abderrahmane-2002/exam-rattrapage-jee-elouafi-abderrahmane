@@ -1,0 +1,12 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@creditProfessionnel.add.headline">Add Credit Professionnel</h1>
+    <div>
+        <a routerLink="/creditProfessionnels" class="btn btn-secondary" i18n="@@creditProfessionnel.add.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="addForm" field="raisonSociale" i18n-label="@@creditProfessionnel.raisonSociale.label" label="Raison Sociale" />
+    <app-input-row [group]="addForm" field="motif" i18n-label="@@creditProfessionnel.motif.label" label="Motif" />
+    <app-input-row [group]="addForm" field="credit" rowType="select" [options]="creditValues" i18n-label="@@creditProfessionnel.credit.label" label="Credit" />
+    <input type="submit" i18n-value="@@creditProfessionnel.add.headline" value="Add Credit Professionnel" class="btn btn-primary mt-4" />
+</form>

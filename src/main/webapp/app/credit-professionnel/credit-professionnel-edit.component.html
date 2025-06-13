@@ -1,0 +1,13 @@
+<div class="d-flex flex-wrap mb-4">
+    <h1 class="flex-grow-1" i18n="@@creditProfessionnel.edit.headline">Edit Credit Professionnel</h1>
+    <div>
+        <a routerLink="/creditProfessionnels" class="btn btn-secondary" i18n="@@creditProfessionnel.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="id" rowType="number" i18n-label="@@creditProfessionnel.id.label" label="Id" />
+    <app-input-row [group]="editForm" field="raisonSociale" i18n-label="@@creditProfessionnel.raisonSociale.label" label="Raison Sociale" />
+    <app-input-row [group]="editForm" field="motif" i18n-label="@@creditProfessionnel.motif.label" label="Motif" />
+    <app-input-row [group]="editForm" field="credit" rowType="select" [options]="creditValues" i18n-label="@@creditProfessionnel.credit.label" label="Credit" />
+    <input type="submit" i18n-value="@@creditProfessionnel.edit.headline" value="Edit Credit Professionnel" class="btn btn-primary mt-4" />
+</form>
